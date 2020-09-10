@@ -2,23 +2,21 @@ package com.gestionpersonas.GestionPersonas.domain;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Component
 public class Persona {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_persona")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPersona;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
-    private Pais pais;
+
 
     public Persona(){}
 
@@ -62,11 +60,5 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public Pais getPais() {
-        return pais;
-    }
 
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
 }

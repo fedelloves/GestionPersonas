@@ -2,16 +2,18 @@ package com.gestionpersonas.GestionPersonas.domain;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Component
+@Table(name = "pais")
 public class Pais {
 
     @Id
+    @Column(name = "id_pais")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idPais;
+    @Column(name = "nombre")
     private String nombre;
 
     public Pais(){}
