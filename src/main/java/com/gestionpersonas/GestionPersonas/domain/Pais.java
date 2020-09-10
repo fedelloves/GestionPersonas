@@ -1,7 +1,16 @@
 package com.gestionpersonas.GestionPersonas.domain;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Component
 public class Pais {
 
+    @Id
     private Integer idPais;
     private String nombre;
 
