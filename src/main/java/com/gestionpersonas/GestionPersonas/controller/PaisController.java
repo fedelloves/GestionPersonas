@@ -15,11 +15,11 @@ public class PaisController {
     @Autowired
     private PaisService paisService;
 
-    @GetMapping("/")
+    @GetMapping("/paises")
     public String listarPaises(Model model){
         List<Pais> paises = paisService.obtenerPaises();
         model.addAttribute("paises", paises);
-        return "index";
+        return "paises";
 
     }
 }

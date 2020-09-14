@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Component
+@Table(name = "Persona")
 public class Persona {
 
     @Id
@@ -16,6 +17,9 @@ public class Persona {
     private String apellido;
     private String email;
     private String telefono;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_pais")
+    private Pais pais;
 
 
     public Persona(){}
