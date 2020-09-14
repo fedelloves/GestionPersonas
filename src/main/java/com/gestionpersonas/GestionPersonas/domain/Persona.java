@@ -64,5 +64,11 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    public Pais getPais() {
+        return pais;
+    }
 
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
 }
