@@ -16,7 +16,6 @@ public class PaisServiceImpl implements PaisService {
     @Override
     public List<Pais> obtenerPaises() {
         List<Pais> paises = (List<Pais>) paisRepository.findAll();
-        System.out.println(paises);
         return paises;
     }
 }

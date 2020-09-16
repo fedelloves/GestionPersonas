@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class PaisController {
-
+    /*
     @Autowired
     private PaisService paisService;
 
@@ -22,4 +22,6 @@ public class PaisController {
         return "paises";
 
     }
+
+     */
 }
