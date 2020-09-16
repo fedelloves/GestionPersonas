@@ -21,4 +21,20 @@ public class PersonaController {
         model.addAttribute("personas", personas);
         return "personas";
     }
+
+     /*
+
+    @GetMapping("/agregar")
+    public String agregar(Persona persona){
+        return "formularioPersona";
+    }
+
+
+    @PostMapping("/guardar")
+    public String guardar(Persona persona){
+        this.personaService.guardar(persona);
+        return "personas";
+    }
+*/
+
 }

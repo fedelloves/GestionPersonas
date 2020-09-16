@@ -3,16 +3,19 @@ package com.gestionpersonas.GestionPersonas.domain;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Component
-@Table(name = "Persona")
-public class Persona {
+@Table(name = "persona")
+public class Persona implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "id_persona")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPersona;
+    private Long idPersona;
     private String nombre;
     private String apellido;
     private String email;
@@ -24,11 +27,11 @@ public class Persona {
 
     public Persona(){}
 
-    public Integer getIdPersona() {
+    public Long getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(Integer idPersona) {
+    public void setIdPersona(Long idPersona) {
         this.idPersona = idPersona;
     }
 
