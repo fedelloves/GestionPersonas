@@ -7,8 +7,7 @@ import com.gestionpersonas.GestionPersonas.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,12 +37,21 @@ public class PersonaController {
         return "formularioPersona";
     }
 
-/*
+
     @PostMapping("/guardar")
-    public String guardar(Persona persona){
+    public String guardar(@ModelAttribute Persona persona){
         this.personaService.guardar(persona);
-        return "personas";
+        return "redirect:/personas";
     }
-*/
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable("id") Long idPersona, Model model){
+        Persona persona = personaService.buscarPorId(idPersona);
+        List<Pais> paises = paisService.obtenerPaises();
+        model.addAttribute("persona", persona);
+        model.addAttribute("paises", paises);
+        return "formularioPersona";
+    }
+
 
 }

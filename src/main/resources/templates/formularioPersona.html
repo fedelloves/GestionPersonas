@@ -5,7 +5,8 @@
         <title>Inicio </title>
     </head>
     <body>
-    <form th:object="${persona}">
+
+    <form th:action="@{/guardar}" method="post" th:object="${persona}">
         <label>Nombre</label>
         <input type="text" th:field="*{nombre}">
         <br><br>
@@ -19,11 +20,11 @@
         <input type="text" th:field="*{telefono}">
         <br><br>
         <label>Pais</label>
-        <select name="">
+        <select th:field="*{pais}">
             <option th:each="pais: ${paises}" th:value="${pais.idPais}" th:text="${pais.nombre}"></option>
         </select>
         <br><br>
-        <button type="submit">Guardar</button>
+        <input type="submit">
 
 
     </form>
