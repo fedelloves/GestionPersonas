@@ -53,5 +53,11 @@ public class PersonaController {
         return "formularioPersona";
     }
 
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable("id") Long idPersona){
+        personaService.eliminar(idPersona);
+        return "redirect:/personas";
+    }
+
 
 }
