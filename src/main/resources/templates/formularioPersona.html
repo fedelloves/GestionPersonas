@@ -3,42 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>Inicio </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
 
-    <form th:action="@{/guardar}" method="post" th:object="${persona}">
-        <input type="hidden" th:field="*{idPersona}">
-        <label>Nombre</label>
-        <input type="text" th:field="*{nombre}">
-        <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
-        <br><br>
-        <label>Apellido</label>
-        <input type="text" th:field="*{apellido}">
-        <small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
-        <br><br>
-        <label>E-mail</label>
-        <input type="text" th:field="*{email}">
-        <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
-        <br><br>
-        <label>Telefono</label>
-        <input type="text" th:field="*{telefono}">
-        <small th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
-        <br><br>
-        <label>Pais</label>
-        <select th:field="*{pais}">
-            <option th:each="pais: ${paises}" th:value="${pais.idPais}" th:text="${pais.nombre}"></option>
-        </select>
-        <br><br>
-        <input type="submit">
+    <div class="container">
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            <input type="hidden" th:field="*{idPersona}">
+            <label>Nombre</label>
+            <input type="text" th:field="*{nombre}">
+            <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+            <br><br>
+            <label>Apellido</label>
+            <input type="text" th:field="*{apellido}">
+            <small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
+            <br><br>
+            <label>E-mail</label>
+            <input type="text" th:field="*{email}">
+            <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+            <br><br>
+            <label>Telefono</label>
+            <input type="text" th:field="*{telefono}">
+            <small th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
+            <br><br>
+            <label>Pais</label>
+            <select th:field="*{pais}">
+                <option th:each="pais: ${paises}" th:value="${pais.idPais}" th:text="${pais.nombre}"></option>
+            </select>
+            <br><br>
+            <input type="submit">
 
 
-    </form>
+        </form>
 
-
-
-
-
-
-
+    </div>
     </body>
 </html>

@@ -30,7 +30,7 @@ public class PersonaController {
         return "personas";
     }
 
-    @GetMapping("/agregar")
+    @GetMapping("/personas/agregar")
     public String agregar(Model model){
         Persona persona = new Persona();
         List<Pais> paises = paisService.obtenerPaises();

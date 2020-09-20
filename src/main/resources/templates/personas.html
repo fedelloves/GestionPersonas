@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="plantilla/template :: head">
         <meta charset="UTF-8">
         <title>Personas</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
 
-        <a th:href="@{/agregar}">Agregar Persona</a>
-        <br><br>
-        <table class="table">
-            <tr class="table-dark">
-                <th>Id Persona</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>E-mail</th>
-                <th>Telefono</th>
-                <th>Pais</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-            <tr th:each="persona: ${personas}">
-               <td th:text="${persona.idPersona}"></td>
-               <td th:text="${persona.nombre}"></td>
-               <td th:text="${persona.apellido}"></td>
-               <td th:text="${persona.email}"></td>
-               <td th:text="${persona.telefono}"></td>
-               <td th:text="${persona.pais.nombre}"></td>
-                <td>
-                    <a th:href="@{/personas/editar/} + ${persona.idPersona}" th:text="Editar"></a>
-                </td>
-                <td>
-                    <a th:href="@{/personas/eliminar/} + ${persona.idPersona}" th:text="Eliminar" onclick="return confirm('Estas segura de elimiar el registro?')"></a>
-                </td>
+        <header th:replace="plantilla/template :: header"></header>
 
-            </tr>
-        </table>
+        <div class="container">
+            <a th:href="@{/personas/agregar}">Agregar Persona</a>
+
+            <br>
+
+            <table class="table">
+                <tr class="table-dark">
+                    <th>Id Persona</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>E-mail</th>
+                    <th>Telefono</th>
+                    <th>Pais</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each="persona: ${personas}">
+                    <td th:text="${persona.idPersona}"></td>
+                    <td th:text="${persona.nombre}"></td>
+                    <td th:text="${persona.apellido}"></td>
+                    <td th:text="${persona.email}"></td>
+                    <td th:text="${persona.telefono}"></td>
+                    <td th:text="${persona.pais.nombre}"></td>
+                    <td>
+                        <a th:href="@{/personas/editar/} + ${persona.idPersona}" th:text="Editar"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/personas/eliminar/} + ${persona.idPersona}" th:text="Eliminar" onclick="return confirm('Estas segura de elimiar el registro?')"></a>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+    <footer th:replace="plantilla/template :: footer"></footer>
+
     </body>
 </html>
