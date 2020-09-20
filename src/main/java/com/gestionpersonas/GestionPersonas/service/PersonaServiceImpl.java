@@ -33,4 +33,9 @@ public class PersonaServiceImpl implements PersonaService{
     public void eliminar(Long id) {
         personaRepository.deleteById(id);
     }
+
+    @Override
+    public boolean existe(Long id) {
+        return personaRepository.existsById(id);
+    }
 }

@@ -3,6 +3,8 @@ package com.gestionpersonas.GestionPersonas.domain;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -16,9 +18,14 @@ public class Persona implements Serializable {
     @Column(name = "id_persona")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersona;
+    @NotEmpty
     private String nombre;
+    @NotEmpty
     private String apellido;
+    @NotEmpty
+    @Email
     private String email;
+    @NotEmpty
     private String telefono;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_pais")

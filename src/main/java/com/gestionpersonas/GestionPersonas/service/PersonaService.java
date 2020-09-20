@@ -11,4 +11,5 @@ public interface PersonaService {
     public void guardar(Persona persona);
     public Persona buscarPorId(Long id);
     public void eliminar(Long id);
+    public boolean existe(Long id);
 }

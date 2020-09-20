@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Personas</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
 
         <a th:href="@{/agregar}">Agregar Persona</a>
         <br><br>
-        <table border="1">
-            <tr>
+        <table class="table">
+            <tr class="table-dark">
                 <th>Id Persona</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -27,10 +28,10 @@
                <td th:text="${persona.telefono}"></td>
                <td th:text="${persona.pais.nombre}"></td>
                 <td>
-                    <a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"></a>
+                    <a th:href="@{/personas/editar/} + ${persona.idPersona}" th:text="Editar"></a>
                 </td>
                 <td>
-                    <a th:href="@{/eliminar/} + ${persona.idPersona}" th:text="Eliminar"></a>
+                    <a th:href="@{/personas/eliminar/} + ${persona.idPersona}" th:text="Eliminar" onclick="return confirm('Estas segura de elimiar el registro?')"></a>
                 </td>
 
             </tr>

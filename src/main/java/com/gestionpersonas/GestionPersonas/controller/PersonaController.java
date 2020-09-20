@@ -7,8 +7,10 @@ import com.gestionpersonas.GestionPersonas.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -39,24 +41,42 @@ public class PersonaController {
 
 
     @PostMapping("/guardar")
-    public String guardar(@ModelAttribute Persona persona){
+    public String guardar(@Valid @ModelAttribute Persona persona, BindingResult result, Model model){
+        List<Pais> paises = paisService.obtenerPaises();
+        if(result.hasErrors()){
+            model.addAttribute("persona", persona);
+            model.addAttribute("paises", paises);
+            return "formularioPersona";
+        }
         this.personaService.guardar(persona);
         return "redirect:/personas";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/personas/editar/{id}")
     public String editar(@PathVariable("id") Long idPersona, Model model){
-        Persona persona = personaService.buscarPorId(idPersona);
-        List<Pais> paises = paisService.obtenerPaises();
-        model.addAttribute("persona", persona);
-        model.addAttribute("paises", paises);
-        return "formularioPersona";
+        if(!personaService.existe(idPersona)){
+            System.out.println("El ID a editar no existe");
+            return "redirect:/personas";
+        }else{
+            Persona persona = personaService.buscarPorId(idPersona);
+            List<Pais> paises = paisService.obtenerPaises();
+            model.addAttribute("persona", persona);
+            model.addAttribute("paises", paises);
+            return "formularioPersona";
+        }
+
     }
 
-    @GetMapping("/eliminar/{id}")
+    @GetMapping("/personas/eliminar/{id}")
     public String eliminar(@PathVariable("id") Long idPersona){
-        personaService.eliminar(idPersona);
-        return "redirect:/personas";
+        if(!personaService.existe(idPersona)){
+            System.out.println("El ID a editar no existe");
+            return "redirect:/personas";
+        }else{
+            personaService.eliminar(idPersona);
+            return "redirect:/personas";
+        }
+
     }
 
 

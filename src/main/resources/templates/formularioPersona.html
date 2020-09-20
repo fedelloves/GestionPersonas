@@ -10,15 +10,19 @@
         <input type="hidden" th:field="*{idPersona}">
         <label>Nombre</label>
         <input type="text" th:field="*{nombre}">
+        <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
         <br><br>
         <label>Apellido</label>
         <input type="text" th:field="*{apellido}">
+        <small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
         <br><br>
         <label>E-mail</label>
         <input type="text" th:field="*{email}">
+        <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
         <br><br>
         <label>Telefono</label>
         <input type="text" th:field="*{telefono}">
+        <small th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
         <br><br>
         <label>Pais</label>
         <select th:field="*{pais}">
