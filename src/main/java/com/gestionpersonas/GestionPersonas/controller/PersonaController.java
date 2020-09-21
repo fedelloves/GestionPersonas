@@ -14,7 +14,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/personas")
 public class PersonaController {
 
     @Autowired
@@ -26,6 +25,7 @@ public class PersonaController {
     @GetMapping("/personas")
     public String listaPersonas(Model model){
         List<Persona> personas = personaService.obtenerPersonas();
+        model.addAttribute("titulo", "Lista de Personas");
         model.addAttribute("personas", personas);
         return "personas";
     }
@@ -34,13 +34,14 @@ public class PersonaController {
     public String agregar(Model model){
         Persona persona = new Persona();
         List<Pais> paises = paisService.obtenerPaises();
+        model.addAttribute("titulo", "Nueva persona");
         model.addAttribute("persona", persona);
         model.addAttribute("paises", paises);
         return "formularioPersona";
     }
 
 
-    @PostMapping("/guardar")
+    @PostMapping("/personas/agregar/guardar")
     public String guardar(@Valid @ModelAttribute Persona persona, BindingResult result, Model model){
         List<Pais> paises = paisService.obtenerPaises();
         if(result.hasErrors()){
@@ -60,6 +61,7 @@ public class PersonaController {
         }else{
             Persona persona = personaService.buscarPorId(idPersona);
             List<Pais> paises = paisService.obtenerPaises();
+            model.addAttribute("titulo", "Editar persona");
             model.addAttribute("persona", persona);
             model.addAttribute("paises", paises);
             return "formularioPersona";

@@ -10,6 +10,10 @@
         <header th:replace="plantilla/template :: header"></header>
 
         <div class="container">
+            <h1 th:text="${titulo}"></h1>
+        </div>
+
+        <div class="container">
             <a th:href="@{/personas/agregar}">Agregar Persona</a>
 
             <br>
