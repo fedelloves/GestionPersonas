@@ -14,12 +14,13 @@
         </div>
 
         <div class="container">
-            <a th:href="@{/personas/agregar}">Agregar Persona</a>
+
+            <a class="btn btn-primary btn-sm" th:href="@{/personas/agregar}" th:text="'Agregar Persona'"></a>
 
             <br>
 
             <table class="table">
-                <tr class="table-dark">
+                <tr class="bg-dark text-white">
                     <th>Id Persona</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
