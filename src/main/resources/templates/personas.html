@@ -15,9 +15,9 @@
 
         <div class="container">
 
-            <a class="btn btn-primary btn-sm" th:href="@{/personas/agregar}" th:text="'Agregar Persona'"></a>
+            <a class="btn btn-success btn-sm" th:href="@{/personas/agregar}" th:text="'Agregar Persona'"></a>
 
-            <br>
+
 
             <table class="table">
                 <tr class="bg-dark text-white">
@@ -38,10 +38,10 @@
                     <td th:text="${persona.telefono}"></td>
                     <td th:text="${persona.pais.nombre}"></td>
                     <td>
-                        <a th:href="@{/personas/editar/} + ${persona.idPersona}" th:text="Editar"></a>
+                        <a class="btn btn-warning btn-sm" th:href="@{/personas/editar/} + ${persona.idPersona}" th:text="Editar"></a>
                     </td>
                     <td>
-                        <a th:href="@{/personas/eliminar/} + ${persona.idPersona}" th:text="Eliminar" onclick="return confirm('Estas segura de elimiar el registro?')"></a>
+                        <a class="btn btn-danger btn-sm" th:href="@{/personas/eliminar/} + ${persona.idPersona}" th:text="Eliminar" onclick="return confirm('Estas segura de elimiar el registro?')"></a>
                     </td>
 
                 </tr>
