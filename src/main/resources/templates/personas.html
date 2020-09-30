@@ -11,14 +11,21 @@
 
         <div class="container">
             <h1 th:text="${titulo}"></h1>
+            <div class="row justify-content-center">
+                <div class="col-6 mt-2">
+                    <a class="btn btn-success btn-sm" th:href="@{/personas/agregar}" th:text="'Agregar Persona'"></a>
+                </div>
+                <div class="col-6 mb-2">
+                    <!-- Busqueda -->
+                    <form class="form-inline my-2 my-lg-0 mb-2 justify-content-end">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="container">
-
-            <a class="btn btn-success btn-sm" th:href="@{/personas/agregar}" th:text="'Agregar Persona'"></a>
-
-
-
             <table class="table">
                 <tr class="bg-dark text-white">
                     <th>Id Persona</th>
